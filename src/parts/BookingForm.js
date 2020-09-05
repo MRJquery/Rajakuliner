@@ -48,10 +48,6 @@ class BookingForm extends Component {
     }
 
     if (prevState.data.jml_order !== data.jml_order) {
-      const startDate = new Date(data.date.startDate);
-      const endDate = new Date(
-        startDate.setDate(startDate.getDate() + +data.jml_order - 1)
-      );
       this.setState({
         ...this.state,
         data: {

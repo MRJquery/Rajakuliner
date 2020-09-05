@@ -2,9 +2,7 @@ import React from "react";
 import Fade from "react-reveal/Fade";
 
 import ImageHero from "assets/images/Groceries-amico.jpg";
-import IconMenu from "assets/images/icons/catering.svg";
-import IconPelanggan from "assets/images/icons/restaurant.svg";
-import IconTreasure from "assets/images/icons/camera.svg";
+
 import Button from "elements/Button";
 
 export default function Hero(props) {
@@ -15,13 +13,7 @@ export default function Hero(props) {
     });
   }
 
-  function showMostPickSmall() {
-    window.scrollTo({
-      top: props.refMostPickedSmall.current.offsetTop - 30,
-      behavior: "smooth",
-    });
-  }
-
+  
   return (
     <Fade bottom>
     <>

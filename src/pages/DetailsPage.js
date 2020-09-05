@@ -23,8 +23,7 @@ class DetailsPage extends Component {
   }
 
   render() {
-    const { page, match } = this.props;
-
+    
 
     const breadcrumb = [
       { pageTitle: "Home", pageHref: "" },
