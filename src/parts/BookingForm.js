@@ -10,15 +10,12 @@ import formatNumber from "utils/formatNumber";
 class BookingForm extends Component {
   constructor(props) {
     super(props);
-
-    var date = new Date();
     this.state = {
       data: {
-        jml_order: props.itemDetails.min_order,
         duration: 1,
         date: {
-          startDate: date.addDays(1),
-          endDate: date.addDays(1),
+          startDate: new Date(1),
+          endDate: new Date(1),
           key: "selection",
         },
       },
@@ -70,15 +67,6 @@ class BookingForm extends Component {
 
   startBooking = () => {
     const { data } = this.state;
-    this.props.startBooking({
-      _id: this.props.itemDetails._id,
-      jml_order: data.jml_order,
-      duration: data.duration,
-      date: {
-        startDate: data.date.startDate,
-        endDate: data.date.endDate,
-      },
-    });
     this.props.history.push("/checkout");
   };
 
@@ -91,28 +79,17 @@ class BookingForm extends Component {
     return (
       <div className="card bordered booking-form">
         <h4 className="mb-3">Pesan Sekarang</h4>
-        <h5 className="h3 text-teal mb-4">
-          Rp. {formatNumber(itemDetails.price)}{" "}
-          <span className="text-gray-500 font-weight-light">
-            per {itemDetails.unit}
-          </span>
-        </h5>
 
         <label htmlFor="jml_order">Ingin tambah porsinya?</label>
         <InputNumber
-          min={this.props.itemDetails.min_order}
+          min={this.min_order}
           max={100}
           suffix={" porsi"}
           onChange={this.updateData}
           name="jml_order"
           value={data.jml_order}
         />
-        <span className="text-gray-400 mb-3" style={{ marginTop: -15 }}>
-          <small>
-            Min. Order {this.props.itemDetails.min_order}{" "}
-            {this.props.itemDetails.unit}
-          </small>
-        </span>
+        
 
         <label htmlFor="date">Untuk Kapan ?</label>
         <InputDate
@@ -132,11 +109,11 @@ class BookingForm extends Component {
           Total Bayar{" "}
           <span className="text-gray-900">
             Rp.{" "}
-            {formatNumber(itemDetails.price * data.jml_order * data.duration)}
+            {formatNumber( data.jml_order * data.duration)}
           </span>{" "}
           untuk{" "}
           <span className="text-gray-900">
-            {data.jml_order} {itemDetails.unit} selama {data.duration} hari
+            {data.jml_order} selama {data.duration} hari
           </span>
         </h6>
 
@@ -155,8 +132,8 @@ class BookingForm extends Component {
 }
 
 BookingForm.propTypes = {
-  itemDetails: propTypes.object,
-  startBooking: propTypes.func,
+
+  startBooking: propTypes,
 };
 
 Date.prototype.addDays = function (days) {

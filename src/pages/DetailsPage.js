@@ -61,7 +61,7 @@ class DetailsPage extends Component {
             <div className="col-12 d-block d-lg-none">
               <Fade bottom>
               <BookingForm
-                  itemDetails={ItemDetails}
+            
                   startBooking={this.props.checkoutBooking}
                 />
               </Fade>
