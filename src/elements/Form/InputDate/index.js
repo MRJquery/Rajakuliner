@@ -46,7 +46,7 @@ export default function Date(props) {
 
   let displayDate = '';
 
-  if (formatDate(value.startDate) == formatDate(value.endDate)) {
+  if (formatDate(value.startDate) === formatDate(value.endDate)) {
     displayDate = `${value.startDate ? formatDate(value.startDate) + ' Saja' : ""}`;
   } else {
     displayDate = `${value.startDate ? formatDate(value.startDate) : ""}${

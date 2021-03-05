@@ -62,7 +62,6 @@ class BookingForm extends Component {
   }
 
   startBooking = () => {
-    const { data } = this.state;
     this.props.history.push("/checkout");
   };
 
@@ -70,7 +69,6 @@ class BookingForm extends Component {
     const { data } = this.state;
     var minDate = new Date();
 
-    const { itemDetails, startBooking } = this.props;
 
     return (
       <div className="card bordered booking-form">
